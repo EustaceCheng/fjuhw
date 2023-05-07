@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>歡迎光臨</title>
+    <meta http-equiv="refresh" content="5;url=main.html" />
+  </head>
+  <body bgcolor="black">
+    <p>
+      <b><font size="7" color="red" face="華康粗圓體">LOADING</font></b
+      ><progress id="pb" max="100"><span>0</span>%</progress>
+    </p>
+
+    <script>
+      var progressBar = document.getElementById("pb");
+      var i = 1;
+      function updateProgress(newValue) {
+        progressBar.value = newValue;
+        progressBar.getElementsByTagName("span")[0].innerText = newValue;
+      }
+      function showProgress() {
+        if (i <= 101) {
+          updateProgress(i);
+          i += 5;
+        } else clearInterval();
+      }
+      window.setInterval("showProgress();", 100);
+    </script>
+  </body>
+</html>
